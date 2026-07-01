@@ -614,6 +614,83 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ------------------------------------------------------------------ */
+/* Demo modal                                                          */
+/* ------------------------------------------------------------------ */
+
+.demo-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.demo-modal[hidden] { display: none; }
+
+.demo-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    cursor: pointer;
+}
+
+.demo-modal-dialog {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.demo-modal-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.85rem;
+    z-index: 2;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.demo-modal-close:hover {
+    background: var(--accent);
+    transform: scale(1.05);
+}
+
+.demo-modal-video {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 */
+    background: var(--ink);
+}
+
+.demo-modal-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* ------------------------------------------------------------------ */
 /* Responsive                                                          */
 /* ------------------------------------------------------------------ */
 
@@ -637,4 +714,6 @@ a { color: inherit; text-decoration: none; }
     .legal-section { padding: 2.5rem 1rem 3rem; }
     .legal-container { padding: 2rem 1.5rem; }
     .legal-title { font-size: 1.75rem; }
+
+    .demo-modal { padding: 0.75rem; }
 }
