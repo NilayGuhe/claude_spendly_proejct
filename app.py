@@ -1,6 +1,15 @@
 from flask import Flask, render_template
 
+from database.db import get_db, init_db, seed_db
+
 app = Flask(__name__)
+
+# Initialize the database before any route handles a request.
+with app.app_context():
+    conn = get_db()
+    init_db(conn)
+    seed_db(conn)
+    conn.close()
 
 
 # ------------------------------------------------------------------ #
